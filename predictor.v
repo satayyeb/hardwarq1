@@ -4,13 +4,13 @@ reg[1:0] state = 2'b00;
 
 // Your code
 always @(posedge clk) begin
-    if (request == 1) begin
+    if (result == 1) begin
         if (state == 2'b00 || state == 2'b01) begin
             prediction = 0;    
         end else begin
             prediction = 1;
         end
-    end else if (result == 1) begin
+    end else if (request == 1) begin
         if (taken == 1) begin
             case (state)
                 2'b00: state = 2'b01;
@@ -26,6 +26,8 @@ always @(posedge clk) begin
                 2'b11: state = 2'b10;
             endcase
         end
+    end else begin
+        prediction = 0;
     end
 end
 endmodule
