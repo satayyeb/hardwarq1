@@ -1,9 +1,9 @@
 module predictor(input wire request, result, clk, taken, output reg prediction);
 
-reg[1:0] state = 2'b00;
+reg[1:0] state = 2'b11;
 
 // Your code
-always @(request or result or taken) begin
+always @(posedge clk) begin
     if (request) begin
         if (state == 2'b00 || state == 2'b01) begin
             prediction = 1'b0;    
