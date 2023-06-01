@@ -26,8 +26,6 @@ always @(posedge clk) begin
                 2'b11: state = 2'b10;
             endcase
         end
-    end else begin
-        prediction = 0;
     end
 end
 endmodule
