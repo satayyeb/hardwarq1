@@ -11,7 +11,6 @@ always @(posedge clk) begin
             prediction = 1'b1;
         end
     end else if (result) begin
-        prediction = 1'b0;
         if (taken) begin
             case (state)
                 2'b00: state = 2'b01;
